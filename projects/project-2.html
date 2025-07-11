@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проект 2 - Лицензия МЧС | И-ЛАБ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 50%, #34d399 100%);
+            min-height: 100vh;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Back to Portfolio */
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #059669;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 1001;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #059669;
+        }
+
+        .back-to-portfolio:hover {
+            background: #059669;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 3px solid #059669;
+            margin-bottom: 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .company-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-crown {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .company-info h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 0.2rem;
+        }
+
+        .company-info p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #059669;
+            text-decoration: none;
+        }
+
+        .phone-number:hover {
+            color: #047857;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #059669;
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(5, 150, 105, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #059669;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #059669, #047857);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+
+        .service-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #4b5563;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            padding: 12px 30px;
+            border: 2px solid #059669;
+            background: transparent;
+            color: #059669;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: #059669;
+            color: white;
+        }
+
+        .pricing-content {
+            display: none;
+        }
+
+        .pricing-content.active {
+            display: block;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(5, 150, 105, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-3px);
+            border-color: #059669;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-duration {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Specialist Section */
+        .specialist {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .specialist-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .specialist-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #9ca3af;
+            border: 4px solid #059669;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .specialist-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 0.5rem;
+        }
+
+        .specialist-info p {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .specialist-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .specialist-contacts a {
+            color: #059669;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .specialist-contacts a:hover {
+            color: #047857;
+        }
+
+        /* Company Info */
+        .company-details {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .company-block h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+
+        .company-block p {
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #059669;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .calculation-result {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 15px;
+            border: 2px solid #059669;
+        }
+
+        .result-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+
+        .result-details {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specialist-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 200px;
+            }
+
+            .header-content {
+                text-align: center;
+            }
+
+            .company-info h1 {
+                font-size: 1.4rem;
+            }
+
+            .phone-number {
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Portfolio -->
+    <a href="../index.html" class="back-to-portfolio">
+        <i class="fas fa-arrow-left"></i> Назад в портфолио
+    </a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="company-logo">
+                    <div class="logo-crown">👑</div>
+                    <div class="company-info">
+                        <h1>ЛИЦЕНЗИЯ МЧС</h1>
+                        <p>по всей России</p>
+                    </div>
+                </div>
+                <div class="header-contact">
+                    <a href="tel:+79197990190" class="phone-number">+7 (919) 799-01-90</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Доверьте нам все работы по получению лицензии МЧС</h1>
+                    <p>Профессиональное оформление лицензий МЧС "под ключ". Быстро, надежно, с гарантией получения. Работаем по всей России.</p>
+                    <button class="cta-button" onclick="scrollToForm()">
+                        Получить консультацию
+                    </button>
+                </div>
+                <div class="contact-form">
+                    <h3 class="form-title">ОБРАТНЫЙ ЗВОНОК</h3>
+                    <form id="callbackForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Ваше имя *" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Номер телефона" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select name="service" required>
+                                <option value="">Выберите услугу</option>
+                                <option value="license-new">Получение новой лицензии</option>
+                                <option value="license-renewal">Продление лицензии</option>
+                                <option value="license-change">Изменение лицензии</option>
+                                <option value="consultation">Консультация</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="region" required>
+                                <option value="">Выберите регион</option>
+                                <option value="moscow">Москва</option>
+                                <option value="regions">Все регионы</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn">Рассчитать стоимость</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Получение лицензии МЧС "под ключ"</h3>
+                    <ul class="service-list">
+                        <li>Подготовка всего пакета документов</li>
+                        <li>Подача документов в МЧС</li>
+                        <li>Сопровождение до получения лицензии</li>
+                        <li>Юридическое сопровождение</li>
+                        <li>Гарантия получения лицензии</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Подготовка документов</h3>
+                    <ul class="service-list">
+                        <li>Анализ документов компании</li>
+                        <li>Подготовка недостающих справок</li>
+                        <li>Оформление технической документации</li>
+                        <li>Подготовка штата сотрудников</li>
+                        <li>Консультации по требованиям</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Стоимость лицензии</h2>
+            <div class="pricing-tabs">
+                <button class="tab-btn active" onclick="showPricing('moscow')">Москва</button>
+                <button class="tab-btn" onclick="showPricing('regions')">Все регионы</button>
+            </div>
+            
+            <div id="moscow-pricing" class="pricing-content active">
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <h4>Базовая лицензия</h4>
+                        <div class="price">от 50 000 ₽</div>
+                        <div class="price-duration">15 дней</div>
+                    </div>
+                    <div class="price-card">
+                        <h4>Расширенная лицензия</h4>
+                        <div class="price">от 75 000 ₽</div>
+                        <div class="price-duration">20 дней</div>
+                    </div>
+                    <div class="price-card">
+                        <h4>Полная лицензия</h4>
+                        <div class="price">от 100 000 ₽</div>
+                        <div class="price-duration">25 дней</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="regions-pricing" class="pricing-content">
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <h4>Базовая лицензия</h4>
+                        <div class="price">от 30 000 ₽</div>
+                        <div class="price-duration">15 дней</div>
+                    </div>
+                    <div class="price-card">
+                        <h4>Расширенная лицензия</h4>
+                        <div class="price">от 45 000 ₽</div>
+                        <div class="price-duration">20 дней</div>
+                    </div>
+                    <div class="price-card">
+                        <h4>Полная лицензия</h4>
+                        <div class="price">от 65 000 ₽</div>
+                        <div class="price-duration">25 дней</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: #6b7280; margin-bottom: 1rem;">
+                    У нас более 20 готовых предложений, подберем наиболее оптимальное под вашу ситуацию и бюджет
+                </p>
+                <button class="cta-button" onclick="scrollToForm()">
+                    Подробнее
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialist Section -->
+    <section class="specialist">
+        <div class="container">
+            <h2 class="section-title">Ваш специалист</h2>
+            <div class="specialist-content">
+                <div class="specialist-photo">👩‍💼</div>
+                <div class="specialist-info">
+                    <h3>Семенова Екатерина</h3>
+                    <p><strong>Специалист по лицензированию</strong></p>
+                    <p>Специалист с 15 летним опытом работы в МЧС ответит на вопросы, разъяснит действующие нормы и требования, поможет не допустить ошибок.</p>
+                    <div class="specialist-contacts">
+                        <a href="mailto:exp-ilab@bk.ru">
+                            <i class="fas fa-envelope"></i> exp-ilab@bk.ru
+                        </a>
+                        <a href="tel:+79197990190">
+                            <i class="fas fa-phone"></i> +7 (919) 799-01-90
+                        </a>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> Адрес: г Москва, ул. Зарайская, д. 21
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Details -->
+    <section class="company-details">
+        <div class="container">
+            <h2 class="section-title">Реквизиты компании</h2>
+            <div class="company-grid">
+                <div class="company-block">
+                    <h4>ООО ЭТЦ ДПО «И-ЛАБ»</h4>
+                    <p><strong>Юр. адрес:</strong> 109428, город Москва, Зарайская ул, д. 21</p>
+                    <p><strong>ОГРН:</strong> 1237700431649</p>
+                    <p><strong>ИНН:</strong> 9721209492</p>
+                    <p><strong>КПП:</strong> 772101001</p>
+                </div>
+                <div class="company-block">
+                    <h4>Банковские реквизиты</h4>
+                    <p><strong>р/с:</strong> 07028100400004l1517</p>
+                    <p><strong>в ПАО Сбербанк</strong></p>
+                    <p><strong>к/с:</strong> 30101810400000000225</p>
+                    <p><strong>БИК:</strong> 044525225</p>
+                </div>
+                <div class="company-block">
+                    <h4>Контактная информация</h4>
+                    <p><strong>Тел.:</strong> 8 (919) 919-799-01-90</p>
+                    <p><strong>e-mail:</strong> exp-ilab@bk.ru</p>
+                    <p><strong>Генеральный директор:</strong></p>
+                    <p>Семенова Екатерина Петровна</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">И-ЛАБ</div>
+                <div class="footer-links">
+                    <a href="#" onclick="showModal('privacy')">Политика конфиденциальности</a>
+                    <a href="#" onclick="showModal('terms')">Пользовательское соглашение</a>
+                    <a href="#" onclick="showModal('contacts')">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div id="modal-body">
+                <!-- Контент модального окна -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form submission
+        document.getElementById('callbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Расчет стоимости
+            calculatePrice(data);
+        });
+
+        function calculatePrice(data) {
+            let basePrice = 50000;
+            
+            // Корректировка цены в зависимости от региона
+            if (data.region === 'regions') {
+                basePrice = 30000;
+            }
+            
+            // Корректировка в зависимости от услуги
+            switch(data.service) {
+                case 'license-new':
+                    basePrice *= 1;
+                    break;
+                case 'license-renewal':
+                    basePrice *= 0.7;
+                    break;
+                case 'license-change':
+                    basePrice *= 0.5;
+                    break;
+                case 'consultation':
+                    basePrice = 5000;
+                    break;
+            }
+            
+            // Показать результат в модальном окне
+            showCalculationResult(data, basePrice);
+        }
+
+        function showCalculationResult(data, price) {
+            const serviceNames = {
+                'license-new': 'Получение новой лицензии',
+                'license-renewal': 'Продление лицензии',
+                'license-change': 'Изменение лицензии',
+                'consultation': 'Консультация'
+            };
+            
+            const regionNames = {
+                'moscow': 'Москва',
+                'regions': 'Регионы России'
+            };
+            
+            const modalBody = document.getElementById('modal-body');
+            modalBody.innerHTML = `
+                <div class="calculation-result">
+                    <h3>Расчет стоимости</h3>
+                    <div class="result-price">${price.toLocaleString()} ₽</div>
+                    <div class="result-details">
+                        <p><strong>Услуга:</strong> ${serviceNames[data.service]}</p>
+                        <p><strong>Регион:</strong> ${regionNames[data.region]}</p>
+                        <p><strong>Клиент:</strong> ${data.name}</p>
+                        <p><strong>Телефон:</strong> ${data.phone}</p>
+                        <hr style="margin: 1rem 0;">
+                        <p>Наш специалист свяжется с вами в течение 15 минут для уточнения деталей и согласования сроков.</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function showPricing(region) {
+            // Скрыть все таблицы цен
+            document.querySelectorAll('.pricing-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Убрать активный класс с кнопок
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Показать выбранную таблицу
+            document.getElementById(region + '-pricing').classList.add('active');
+            
+            // Активировать кнопку
+            event.target.classList.add('active');
+        }
+
+        function showModal(type) {
+            const modalBody = document.getElementById('modal-body');
+            
+            switch(type) {
+                case 'privacy':
+                    modalBody.innerHTML = `
+                        <h3>Политика конфиденциальности</h3>
+                        <p>Настоящая Политика конфиденциальности персональных данных действует в отношении всей информации, которую ООО ЭТЦ ДПО «И-ЛАБ» может получить о пользователе во время использования им сайта.</p>
+                        <p>Использование сайта означает безоговорочное согласие пользователя с настоящей Политикой и указанными в ней условиями обработки его персональной информации.</p>
+                        <p>В случае несогласия с этими условиями пользователь должен воздержаться от использования сайта.</p>
+                    `;
+                    break;
+                case 'terms':
+                    modalBody.innerHTML = `
+                        <h3>Пользовательское соглашение</h3>
+                        <p>Настоящее соглашение определяет условия использования сайта ООО ЭТЦ ДПО «И-ЛАБ».</p>
+                        <p>Используя сайт, вы соглашаетесь с условиями данного соглашения.</p>
+                        <p>Если вы не согласны с условиями соглашения, не используйте данный сайт.</p>
+                    `;
+                    break;
+                case 'contacts':
+                    modalBody.innerHTML = `
+                        <h3>Контактная информация</h3>
+                        <p><strong>ООО ЭТЦ ДПО «И-ЛАБ»</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> 109428, город Москва, Зарайская ул, д. 21</p>
+                        <p><i class="fas fa-phone"></i> +7 (919) 799-01-90</p>
+                        <p><i class="fas fa-envelope"></i> exp-ilab@bk.ru</p>
+                        <p><strong>Режим работы:</strong> Пн-Пт с 9:00 до 18:00</p>
+                        <p><strong>Генеральный директор:</strong> Семенова Екатерина Петровна</p>
+                    `;
+                    break;
+            }
+            
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function scrollToForm() {
+            document.querySelector('.contact-form').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+
+        // Close modal on outside click
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animations
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 
