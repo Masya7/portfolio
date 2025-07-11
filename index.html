@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Микоши Максим - IT Специалист & Разработчик</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">MM</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Главная</a></li>
+                <li><a href="#about" class="nav-link">О себе</a></li>
+                <li><a href="#experience" class="nav-link">Опыт</a></li>
+                <li><a href="#skills" class="nav-link">Навыки</a></li>
+                <li><a href="#education" class="nav-link">Образование</a></li>
+                <li><a href="#contact" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный экран -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="animated-bg"></div>
+            <div class="particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title animate-fade-in">
+                    <span class="greeting">Привет, я</span>
+                    <span class="name">Микоши Максим</span>
+                </h1>
+                <p class="hero-subtitle animate-fade-in-delay">
+                    Ведущий инженер ИТ-инфраструктуры • Программист-разработчик • Web-дизайнер
+                </p>
+                <div class="hero-info animate-fade-in-delay-2">
+                    <span class="info-badge"><i class="fas fa-map-marker-alt"></i> Москва</span>
+                    <span class="info-badge"><i class="fas fa-birthday-cake"></i> 21 год</span>
+                    <span class="info-badge"><i class="fas fa-briefcase"></i> 2+ года опыта</span>
+                </div>
+                <div class="hero-buttons animate-fade-in-delay-3">
+                    <a href="#contact" class="btn btn-primary">Связаться со мной</a>
+                    <a href="#" class="btn btn-secondary" id="download-cv">
+                        <i class="fas fa-download"></i> Скачать резюме
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image animate-scale-in">
+                <div class="image-wrapper">
+                    <img src="photo.png" alt="Микоши Максим">
+                    <div class="image-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О себе -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">О себе</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Молодой и амбициозный IT-специалист с опытом работы более 2 лет в области системного администрирования и разработки программного обеспечения. Специализируюсь на создании надежных IT-инфраструктур и разработке современных веб-приложений.</p>
+                    <p>Совмещаю работу ведущего инженера в государственной организации с фриланс-проектами, что позволяет мне постоянно развиваться и применять современные технологии на практике.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="2">0</span>
+                            <span class="stat-label">Года опыта</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="15">0</span>
+                            <span class="stat-label">Технологий</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="50">0</span>
+                            <span class="stat-label">Проектов</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="skills-preview">
+                        <div class="skill-icon" style="--delay: 0s;"><i class="fab fa-windows"></i></div>
+                        <div class="skill-icon" style="--delay: 0.1s;"><i class="fab fa-python"></i></div>
+                        <div class="skill-icon" style="--delay: 0.2s;"><i class="fab fa-java"></i></div>
+                        <div class="skill-icon" style="--delay: 0.3s;"><i class="fas fa-database"></i></div>
+                        <div class="skill-icon" style="--delay: 0.4s;"><i class="fab fa-docker"></i></div>
+                        <div class="skill-icon" style="--delay: 0.5s;"><i class="fab fa-git"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Опыт работы -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title">Опыт работы</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span class="date-start">Ноябрь 2023</span>
+                        <span class="date-end">По настоящее время</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Ведущий инженер отдела администрирования ИТ-инфраструктур</h3>
+                        <h4 class="company-name">ФКУ Росдоринформсвязь</h4>
+                        <p class="job-location"><i class="fas fa-map-marker-alt"></i> Москва</p>
+                        <ul class="job-responsibilities">
+                            <li>Администрирование серверов и рабочих станций Windows</li>
+                            <li>Поддержание систем в актуальном рабочем состоянии</li>
+                            <li>Настройка и поддержка систем</li>
+                            <li>Управление IP-телефонией Avaya</li>
+                            <li>Администрирование виртуальных платформ (РЕД Виртуализация)</li>
+                            <li>Администрирование системы мониторинга Zabbix</li>
+                            <li>Выполнение сервисных работ на оборудовании</li>
+                            <li>Подключение принтеров, сканеров, монтаж ЛВС</li>
+                        </ul>
+                        <div class="job-skills">
+                            <span class="skill-tag">Windows Server</span>
+                            <span class="skill-tag">Zabbix</span>
+                            <span class="skill-tag">Avaya</span>
+                            <span class="skill-tag">Виртуализация</span>
+                            <span class="skill-tag">RDP</span>
+                            <span class="skill-tag">DHCP</span>
+                            <span class="skill-tag">VPN</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <span class="date-start">Август 2022</span>
+                        <span class="date-end">По настоящее время</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="job-title">Программист-разработчик</h3>
+                        <h4 class="company-name">Фриланс</h4>
+                        <ul class="job-responsibilities">
+                            <li>Разработка CRM-систем для учета товаров</li>
+                            <li>Проектирование архитектуры приложений с нуля</li>
+                            <li>Интеграция решений с БД и внешними API</li>
+                            <li>Создание понятных и удобных интерфейсов</li>
+                            <li>Разработка и оптимизация корпоративных сайтов</li>
+                            <li>Создание визуального редактора сайтов</li>
+                            <li>UI/UX дизайн для веб и мобильных приложений</li>
+                        </ul>
+                        <div class="job-skills">
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">.NET Core</span>
+                            <span class="skill-tag">ASP.NET</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навыки -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Технические навыки</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-code"></i> Языки программирования</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">C#</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-server"></i> Системное администрирование</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Windows Server</span>
+                        <span class="tag">РЕД Виртуализация</span>
+                        <span class="tag">Zabbix</span>
+                        <span class="tag">IP-телефония Avaya</span>
+                        <span class="tag">RDP</span>
+                        <span class="tag">DHCP</span>
+                        <span class="tag">VPN</span>
+                        <span class="tag">ЛВС</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-laptop-code"></i> Фреймворки и технологии</h3>
+                    <div class="skill-tags">
+                        <span class="tag">.NET Core</span>
+                        <span class="tag">ASP.NET</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">Windows Forms</span>
+                        <span class="tag">WebGL</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">MVVM</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="category-title"><i class="fas fa-database"></i> Базы данных</h3>
+                    <div class="skill-tags">
+                        <span class="tag">MS SQL Server</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL Workbench</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Образование -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <h2 class="section-title">Образование</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <div class="education-year">2024 - 2028</div>
+                    <div class="education-content">
+                        <h3 class="degree">Бакалавр</h3>
+                        <h4 class="university">МТУСИ</h4>
+                        <p class="specialization">Информатика и вычислительная техника, Математическая кибернетика и информационные технологии</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="education-year">2019 - 2023</div>
+                    <div class="education-content">
+                        <h3 class="degree">Среднее профессиональное образование</h3>
+                        <h4 class="university">МАДК им. А.А. Николаева</h4>
+                        <p class="specialization">Информационные системы и программирование (09.02.07)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь со мной</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-text">Готов к новым проектам и интересным задачам. Свяжитесь со мной любым удобным способом.</p>
+                    <div class="contact-items">
+                        <a href="tel:+79773654255" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+7 (977) 365-42-55</span>
+                        </a>
+                        <a href="mailto:mikoshi365@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>mikoshi365@gmail.com</span>
+                        </a>
+                        <a href="https://t.me/vinokot_qp" class="contact-item" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                            <span>@vinokot_qp</span>
+                        </a>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Москва, Россия</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://t.me/vinokot_qp" class="social-link" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Ваш email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Микоши Максим. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
