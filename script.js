@@ -1,3 +1,94 @@
+// Функция для получения московского времени
+function getMoscowTime() {
+    const now = new Date();
+    const moscowTime = new Date(now.toLocaleString("en-US", {timeZone: "Europe/Moscow"}));
+    return moscowTime;
+}
+
+// Функция расчета стажа работы
+function calculateWorkExperience(startDate) {
+    const start = new Date(startDate);
+    const now = getMoscowTime();
+    
+    let years = now.getFullYear() - start.getFullYear();
+    let months = now.getMonth() - start.getMonth();
+    
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+    
+    if (years > 0 && months > 0) {
+        return `${years} ${getYearWord(years)} ${months} ${getMonthWord(months)}`;
+    } else if (years > 0) {
+        return `${years} ${getYearWord(years)}`;
+    } else {
+        return `${months} ${getMonthWord(months)}`;
+    }
+}
+
+// Функция для правильного склонения слов
+function getYearWord(count) {
+    const lastDigit = count % 10;
+    const lastTwoDigits = count % 100;
+    
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+        return 'лет';
+    }
+    if (lastDigit === 1) {
+        return 'год';
+    }
+    if (lastDigit >= 2 && lastDigit <= 4) {
+        return 'года';
+    }
+    return 'лет';
+}
+
+function getMonthWord(count) {
+    const lastDigit = count % 10;
+    const lastTwoDigits = count % 100;
+    
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+        return 'месяцев';
+    }
+    if (lastDigit === 1) {
+        return 'месяц';
+    }
+    if (lastDigit >= 2 && lastDigit <= 4) {
+        return 'месяца';
+    }
+    return 'месяцев';
+}
+
+// Обновление стажа работы при загрузке страницы
+function updateWorkExperience() {
+    // Основная работа - с ноября 2023
+    const mainJobElement = document.querySelector('.experience-duration-main');
+    if (mainJobElement) {
+        const experience = calculateWorkExperience('2023-11-01');
+        mainJobElement.textContent = experience;
+    }
+    
+    // Фриланс - с августа 2022
+    const freelanceElement = document.querySelector('.experience-duration-freelance');
+    if (freelanceElement) {
+        const experience = calculateWorkExperience('2022-08-01');
+        freelanceElement.textContent = experience;
+    }
+    
+    // Общий IT стаж
+    const totalExperienceElement = document.querySelector('.total-experience');
+    if (totalExperienceElement) {
+        const experience = calculateWorkExperience('2022-08-01');
+        totalExperienceElement.textContent = experience;
+    }
+}
+
+// Инициализация EmailJS
+(function() {
+    emailjs.init("YOUR_PUBLIC_KEY"); // Замените на ваш публичный ключ EmailJS
+})();
+
 // Навигация - добавление класса при прокрутке
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -26,10 +117,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
-});
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+    });
+}
 
 // Анимация счетчиков
 const animateCounter = (element, target) => {
@@ -133,6 +226,9 @@ window.addEventListener('scroll', () => {
 
 // Динамические частицы в фоне
 const createParticle = () => {
+    const particlesContainer = document.querySelector('.particles');
+    if (!particlesContainer) return;
+    
     const particle = document.createElement('div');
     particle.className = 'floating-particle';
     particle.style.left = Math.random() * 100 + '%';
@@ -141,7 +237,7 @@ const createParticle = () => {
     particle.style.width = Math.random() * 10 + 5 + 'px';
     particle.style.height = particle.style.width;
     
-    document.querySelector('.particles').appendChild(particle);
+    particlesContainer.appendChild(particle);
     
     setTimeout(() => {
         particle.remove();
@@ -151,32 +247,51 @@ const createParticle = () => {
 // Создание частиц каждые 2 секунды
 setInterval(createParticle, 2000);
 
-// Форма контактов
+// Форма контактов с EmailJS
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Получение данных формы
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
+        // Показать загрузку
+        const submitButton = e.target.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Отправка...';
+        submitButton.disabled = true;
         
-        // Здесь можно добавить отправку данных на сервер
-        console.log('Форма отправлена:', data);
-        
-        // Показать уведомление об успешной отправке
-        showNotification('Сообщение успешно отправлено!');
-        
-        // Очистка формы
-        contactForm.reset();
+        try {
+            // Отправка через EmailJS
+            const result = await emailjs.sendForm(
+                'YOUR_SERVICE_ID', // Замените на ваш Service ID
+                'YOUR_TEMPLATE_ID', // Замените на ваш Template ID
+                contactForm
+            );
+            
+            console.log('Сообщение отправлено:', result);
+            showNotification('Сообщение успешно отправлено! Я отвечу в ближайшее время.', 'success');
+            contactForm.reset();
+            
+        } catch (error) {
+            console.error('Ошибка отправки:', error);
+            showNotification('Произошла ошибка при отправке. Попробуйте написать напрямую в Telegram.', 'error');
+        } finally {
+            // Восстановить кнопку
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
     });
 }
 
 // Функция показа уведомлений
-function showNotification(message) {
+function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
     
     document.body.appendChild(notification);
     
@@ -189,7 +304,7 @@ function showNotification(message) {
         setTimeout(() => {
             notification.remove();
         }, 300);
-    }, 3000);
+    }, 5000);
 }
 
 // Функция скачивания резюме
@@ -217,10 +332,10 @@ async function downloadResume() {
         window.URL.revokeObjectURL(url);
         document.body.removeChild(a);
         
-        showNotification('Резюме успешно загружено!');
+        showNotification('Резюме успешно загружено!', 'success');
     } catch (error) {
         console.error('Ошибка при загрузке резюме:', error);
-        showNotification('Ошибка при загрузке резюме. Попробуйте позже.');
+        showNotification('Ошибка при загрузке резюме. Попробуйте позже.', 'error');
     }
 }
 
@@ -233,7 +348,34 @@ if (downloadCvBtn) {
     });
 }
 
-// Добавление стилей для уведомлений
+// Фильтрация проектов
+function filterProjects(category) {
+    const projects = document.querySelectorAll('.project-card');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    // Обновить активную кнопку
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`[data-filter="${category}"]`).classList.add('active');
+    
+    // Показать/скрыть проекты
+    projects.forEach(project => {
+        if (category === 'all' || project.dataset.category === category) {
+            project.style.display = 'block';
+            setTimeout(() => {
+                project.style.opacity = '1';
+                project.style.transform = 'scale(1)';
+            }, 100);
+        } else {
+            project.style.opacity = '0';
+            project.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                project.style.display = 'none';
+            }, 300);
+        }
+    });
+}
+
+// Добавление стилей для уведомлений и других элементов
 const style = document.createElement('style');
 style.textContent = `
     .notification {
@@ -249,11 +391,26 @@ style.textContent = `
         transform: translateX(100%);
         transition: all 0.3s ease;
         z-index: 1001;
+        max-width: 350px;
+    }
+    
+    .notification.error {
+        background: linear-gradient(135deg, #dc2626, #b91c1c);
     }
     
     .notification.show {
         opacity: 1;
         transform: translateX(0);
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .notification-content i {
+        font-size: 1.2rem;
     }
     
     .floating-particle {
@@ -262,6 +419,7 @@ style.textContent = `
         border-radius: 50%;
         bottom: -20px;
         animation: floatUp linear infinite;
+        pointer-events: none;
     }
     
     @keyframes floatUp {
@@ -295,6 +453,11 @@ style.textContent = `
     .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
     }
+    
+    .experience-duration {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
 `;
 document.head.appendChild(style);
 
@@ -322,8 +485,11 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Инициализация анимаций при загрузке
+// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
+    // Обновить стаж работы
+    updateWorkExperience();
+    
     // Добавление классов для анимации при загрузке
     const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-fade-in-delay, .animate-fade-in-delay-2, .animate-fade-in-delay-3, .animate-scale-in');
     animatedElements.forEach(el => {
@@ -337,5 +503,14 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.style.opacity = '1';
             icon.style.transform = 'scale(1)';
         }, index * 100);
+    });
+    
+    // Инициализация фильтров проектов
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.dataset.filter;
+            filterProjects(category);
+        });
     });
 }); 

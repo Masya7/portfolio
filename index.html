@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Навигация -->
@@ -16,10 +18,11 @@
                 <span class="logo-text">MM</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Главная</a></li>
+                <li><a href="#hero" class="nav-link">Главная</a></li>
                 <li><a href="#about" class="nav-link">О себе</a></li>
                 <li><a href="#experience" class="nav-link">Опыт</a></li>
                 <li><a href="#skills" class="nav-link">Навыки</a></li>
+                <li><a href="#projects" class="nav-link">Проекты</a></li>
                 <li><a href="#education" class="nav-link">Образование</a></li>
                 <li><a href="#contact" class="nav-link">Контакты</a></li>
             </ul>
@@ -31,73 +34,70 @@
         </div>
     </nav>
 
-    <!-- Главный экран -->
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="animated-bg"></div>
-            <div class="particles"></div>
-        </div>
+    <!-- Главная секция -->
+    <section id="hero" class="hero">
+        <div class="particles"></div>
+        <div class="hero-background"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title animate-fade-in">
-                    <span class="greeting">Привет, я</span>
-                    <span class="name">Микоши Максим</span>
+                    Привет, я <span class="gradient-text">Микоши Максим</span>
                 </h1>
                 <p class="hero-subtitle animate-fade-in-delay">
-                    Ведущий инженер ИТ-инфраструктуры • Программист-разработчик • Web-дизайнер
+                    Ведущий инженер ИТ-инфраструктуры и программист-разработчик с опытом <span class="total-experience experience-duration">2+ лет</span>
                 </p>
-                <div class="hero-info animate-fade-in-delay-2">
-                    <span class="info-badge"><i class="fas fa-map-marker-alt"></i> Москва</span>
-                    <span class="info-badge"><i class="fas fa-birthday-cake"></i> 21 год</span>
-                    <span class="info-badge"><i class="fas fa-briefcase"></i> 2+ года опыта</span>
-                </div>
-                <div class="hero-buttons animate-fade-in-delay-3">
-                    <a href="#contact" class="btn btn-primary">Связаться со мной</a>
-                    <a href="#" class="btn btn-secondary" id="download-cv">
-                        <i class="fas fa-download"></i> Скачать резюме
+                <div class="hero-buttons animate-fade-in-delay-2">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Связаться со мной
+                    </a>
+                    <a href="#" id="download-cv" class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Скачать резюме
                     </a>
                 </div>
             </div>
-            <div class="hero-image animate-scale-in">
-                <div class="image-wrapper">
-                    <img src="photo.png" alt="Микоши Максим">
-                    <div class="image-decoration"></div>
+            <div class="hero-image animate-fade-in-delay-3">
+                <div class="image-container">
+                    <img src="photo.png" alt="Микоши Максим" class="profile-photo">
+                    <div class="status-indicator">
+                        <i class="fas fa-circle"></i>
+                        <span>Открыт к работе</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- О себе -->
-    <section id="about" class="about-section">
+    <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">О себе</h2>
+            <h2 class="section-title animate-on-scroll">О себе</h2>
             <div class="about-content">
-                <div class="about-text">
-                    <p>Молодой и амбициозный IT-специалист с опытом работы более 2 лет в области системного администрирования и разработки программного обеспечения. Специализируюсь на создании надежных IT-инфраструктур и разработке современных веб-приложений.</p>
-                    <p>Совмещаю работу ведущего инженера в государственной организации с фриланс-проектами, что позволяет мне постоянно развиваться и применять современные технологии на практике.</p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="2">0</span>
-                            <span class="stat-label">Года опыта</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="15">0</span>
-                            <span class="stat-label">Технологий</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="50">0</span>
-                            <span class="stat-label">Проектов</span>
-                        </div>
-                    </div>
+                <div class="about-text animate-on-scroll">
+                    <p>
+                        Молодой и амбициозный IT-специалист с опытом работы более 2 лет в области системного администрирования и разработки программного обеспечения. Специализируюсь на создании надежных IT-инфраструктур и разработке современных веб-приложений.
+                    </p>
+                    <p>
+                        Совмещаю работу ведущего инженера в государственной организации с фриланс-проектами, что позволяет постоянно развиваться и применять современные технологии на практике.
+                    </p>
                 </div>
-                <div class="about-image">
-                    <div class="skills-preview">
-                        <div class="skill-icon" style="--delay: 0s;"><i class="fab fa-windows"></i></div>
-                        <div class="skill-icon" style="--delay: 0.1s;"><i class="fab fa-python"></i></div>
-                        <div class="skill-icon" style="--delay: 0.2s;"><i class="fab fa-java"></i></div>
-                        <div class="skill-icon" style="--delay: 0.3s;"><i class="fas fa-database"></i></div>
-                        <div class="skill-icon" style="--delay: 0.4s;"><i class="fab fa-docker"></i></div>
-                        <div class="skill-icon" style="--delay: 0.5s;"><i class="fab fa-git"></i></div>
+                <div class="stats-grid animate-on-scroll">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="2">0</div>
+                        <div class="stat-label">Года опыта</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Завершенных проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="8">0</div>
+                        <div class="stat-label">Технологий</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label">Часа в сутки готов работать</div>
                     </div>
                 </div>
             </div>
@@ -105,67 +105,41 @@
     </section>
 
     <!-- Опыт работы -->
-    <section id="experience" class="experience-section">
+    <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Опыт работы</h2>
+            <h2 class="section-title animate-on-scroll">Опыт работы</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">
-                        <span class="date-start">Ноябрь 2023</span>
-                        <span class="date-end">По настоящее время</span>
-                    </div>
+                    <div class="timeline-date">2023 - сейчас</div>
                     <div class="timeline-content">
-                        <h3 class="job-title">Ведущий инженер отдела администрирования ИТ-инфраструктур</h3>
-                        <h4 class="company-name">ФКУ Росдоринформсвязь</h4>
-                        <p class="job-location"><i class="fas fa-map-marker-alt"></i> Москва</p>
-                        <ul class="job-responsibilities">
+                        <h3>Ведущий инженер отдела администрирования ИТ-инфраструктур</h3>
+                        <h4>ФКУ Росдоринформсвязь</h4>
+                        <p class="job-duration">Опыт работы: <span class="experience-duration-main experience-duration">1 год 8 месяцев</span></p>
+                        <ul class="timeline-list">
                             <li>Администрирование серверов и рабочих станций Windows</li>
                             <li>Поддержание систем в актуальном рабочем состоянии</li>
-                            <li>Настройка и поддержка систем</li>
                             <li>Управление IP-телефонией Avaya</li>
                             <li>Администрирование виртуальных платформ (РЕД Виртуализация)</li>
                             <li>Администрирование системы мониторинга Zabbix</li>
                             <li>Выполнение сервисных работ на оборудовании</li>
-                            <li>Подключение принтеров, сканеров, монтаж ЛВС</li>
                         </ul>
-                        <div class="job-skills">
-                            <span class="skill-tag">Windows Server</span>
-                            <span class="skill-tag">Zabbix</span>
-                            <span class="skill-tag">Avaya</span>
-                            <span class="skill-tag">Виртуализация</span>
-                            <span class="skill-tag">RDP</span>
-                            <span class="skill-tag">DHCP</span>
-                            <span class="skill-tag">VPN</span>
-                        </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
-                    <div class="timeline-date">
-                        <span class="date-start">Август 2022</span>
-                        <span class="date-end">По настоящее время</span>
-                    </div>
+                    <div class="timeline-date">2022 - сейчас</div>
                     <div class="timeline-content">
-                        <h3 class="job-title">Программист-разработчик</h3>
-                        <h4 class="company-name">Фриланс</h4>
-                        <ul class="job-responsibilities">
+                        <h3>Программист-разработчик</h3>
+                        <h4>Фриланс</h4>
+                        <p class="job-duration">Опыт работы: <span class="experience-duration-freelance experience-duration">2 года 11 месяцев</span></p>
+                        <ul class="timeline-list">
                             <li>Разработка CRM-систем для учета товаров</li>
                             <li>Проектирование архитектуры приложений с нуля</li>
                             <li>Интеграция решений с БД и внешними API</li>
                             <li>Создание понятных и удобных интерфейсов</li>
                             <li>Разработка и оптимизация корпоративных сайтов</li>
-                            <li>Создание визуального редактора сайтов</li>
-                            <li>UI/UX дизайн для веб и мобильных приложений</li>
+                            <li>Дизайн интерфейсов для веб- и мобильных приложений</li>
                         </ul>
-                        <div class="job-skills">
-                            <span class="skill-tag">C#</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">.NET Core</span>
-                            <span class="skill-tag">ASP.NET</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">UI/UX</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -173,13 +147,16 @@
     </section>
 
     <!-- Навыки -->
-    <section id="skills" class="skills-section">
+    <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Технические навыки</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 class="category-title"><i class="fas fa-code"></i> Языки программирования</h3>
-                    <div class="skill-items">
+            <h2 class="section-title animate-on-scroll">Технические навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h3>Языки программирования</h3>
+                    </div>
+                    <div class="skills-list">
                         <div class="skill-item">
                             <span class="skill-name">C#</span>
                             <div class="skill-bar">
@@ -193,55 +170,339 @@
                             </div>
                         </div>
                         <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
                             <span class="skill-name">Java</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-skill="75"></div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <i class="fas fa-tools skill-icon"></i>
+                        <h3>Фреймворки и технологии</h3>
+                    </div>
+                    <div class="skills-list">
                         <div class="skill-item">
-                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-name">.NET Core</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Django</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h3>Базы данных</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">MS SQL Server</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">PostgreSQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="78"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <i class="fas fa-server skill-icon"></i>
+                        <h3>Системное администрирование</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Windows Server</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Zabbix</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-skill="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">IP-телефония Avaya</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" data-skill="80"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="skill-category">
-                    <h3 class="category-title"><i class="fas fa-server"></i> Системное администрирование</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Windows Server</span>
-                        <span class="tag">РЕД Виртуализация</span>
-                        <span class="tag">Zabbix</span>
-                        <span class="tag">IP-телефония Avaya</span>
-                        <span class="tag">RDP</span>
-                        <span class="tag">DHCP</span>
-                        <span class="tag">VPN</span>
-                        <span class="tag">ЛВС</span>
+    <!-- Проекты -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Портфолио проектов</h2>
+            <p class="section-description animate-on-scroll">
+                Мои работы в области веб-разработки, системного администрирования и дизайна
+            </p>
+            
+            <!-- Фильтры -->
+            <div class="project-filters animate-on-scroll">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    Все проекты
+                </button>
+                <button class="filter-btn" data-filter="web">
+                    <i class="fas fa-code"></i>
+                    Веб-разработка
+                </button>
+                <button class="filter-btn" data-filter="design">
+                    <i class="fas fa-palette"></i>
+                    Дизайн
+                </button>
+                <button class="filter-btn" data-filter="sysadmin">
+                    <i class="fas fa-server"></i>
+                    Системное администрирование
+                </button>
+                <button class="filter-btn" data-filter="mobile">
+                    <i class="fas fa-mobile-alt"></i>
+                    Мобильные приложения
+                </button>
+            </div>
+
+            <!-- Проекты -->
+            <div class="projects-grid">
+                <!-- Веб-разработка -->
+                <div class="project-card animate-on-scroll" data-category="web">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/2563eb/ffffff?text=CRM+System" alt="CRM System">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="btn-icon" title="Посмотреть проект">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="btn-icon" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>CRM-система учета товаров</h3>
+                        <p>Полнофункциональная система для управления складом с интеграцией базы данных</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">SQL Server</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3 class="category-title"><i class="fas fa-laptop-code"></i> Фреймворки и технологии</h3>
-                    <div class="skill-tags">
-                        <span class="tag">.NET Core</span>
-                        <span class="tag">ASP.NET</span>
-                        <span class="tag">Django</span>
-                        <span class="tag">Windows Forms</span>
-                        <span class="tag">WebGL</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Git</span>
-                        <span class="tag">MVVM</span>
+                <div class="project-card animate-on-scroll" data-category="web">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/3b82f6/ffffff?text=Web+Editor" alt="Web Editor">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="btn-icon" title="Посмотреть проект">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="btn-icon" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Визуальный редактор сайтов</h3>
+                        <p>Собственный drag-and-drop редактор для создания веб-сайтов без программирования</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3 class="category-title"><i class="fas fa-database"></i> Базы данных</h3>
-                    <div class="skill-tags">
-                        <span class="tag">MS SQL Server</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">MySQL Workbench</span>
+                <div class="project-card animate-on-scroll" data-category="web">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/1e40af/ffffff?text=Corporate+Site" alt="Corporate Site">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="btn-icon" title="Посмотреть проект">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="btn-icon" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Корпоративный сайт</h3>
+                        <p>Современный адаптивный сайт для IT-компании с CMS и аналитикой</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дизайн -->
+                <div class="project-card animate-on-scroll" data-category="design">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/8b5cf6/ffffff?text=UI%2FUX+Design" alt="UI/UX Design">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="btn-icon" title="Посмотреть проект">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="btn-icon" title="Figma">
+                                    <i class="fab fa-figma"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>UI/UX дизайн мобильного приложения</h3>
+                        <p>Дизайн интерфейса приложения для управления финансами с пользовательскими исследованиями</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Photoshop</span>
+                            <span class="tech-tag">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll" data-category="design">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/f59e0b/ffffff?text=Brand+Identity" alt="Brand Identity">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="btn-icon" title="Посмотреть проект">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="#" class="btn-icon" title="Behance">
+                                    <i class="fab fa-behance"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Фирменный стиль стартапа</h3>
+                        <p>Разработка логотипа, фирменного стиля и брендбука для IT-стартапа</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Illustrator</span>
+                            <span class="tech-tag">Branding</span>
+                            <span class="tech-tag">Print Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Системное администрирование -->
+                <div class="project-card animate-on-scroll" data-category="sysadmin">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/10b981/ffffff?text=Network+Setup" alt="Network Setup">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="btn-icon" title="Посмотреть документацию">
+                                    <i class="fas fa-file-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Настройка корпоративной сети</h3>
+                        <p>Проектирование и внедрение сетевой инфраструктуры для офиса на 100+ сотрудников</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Windows Server</span>
+                            <span class="tech-tag">DHCP</span>
+                            <span class="tech-tag">VPN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate-on-scroll" data-category="sysadmin">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/ef4444/ffffff?text=Monitoring" alt="Monitoring">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="btn-icon" title="Посмотреть dashboard">
+                                    <i class="fas fa-chart-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Система мониторинга Zabbix</h3>
+                        <p>Настройка и кастомизация системы мониторинга для отслеживания IT-инфраструктуры</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Zabbix</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мобильные приложения -->
+                <div class="project-card animate-on-scroll" data-category="mobile">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/6366f1/ffffff?text=Mobile+App" alt="Mobile App">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="#" class="btn-icon" title="Посмотреть в Play Store">
+                                    <i class="fab fa-google-play"></i>
+                                </a>
+                                <a href="#" class="btn-icon" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Мобильное приложение для бизнеса</h3>
+                        <p>Cross-platform приложение для управления задачами и проектами команды</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">API</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -249,24 +510,33 @@
     </section>
 
     <!-- Образование -->
-    <section id="education" class="education-section">
+    <section id="education" class="education">
         <div class="container">
-            <h2 class="section-title">Образование</h2>
-            <div class="education-timeline">
-                <div class="education-item">
-                    <div class="education-year">2024 - 2028</div>
+            <h2 class="section-title animate-on-scroll">Образование</h2>
+            <div class="education-grid">
+                <div class="education-item animate-on-scroll">
+                    <div class="education-year">
+                        <span class="year-range">2024-2028</span>
+                        <span class="status current">Обучение</span>
+                    </div>
                     <div class="education-content">
-                        <h3 class="degree">Бакалавр</h3>
-                        <h4 class="university">МТУСИ</h4>
-                        <p class="specialization">Информатика и вычислительная техника, Математическая кибернетика и информационные технологии</p>
+                        <h3>Бакалавриат</h3>
+                        <h4>МТУСИ</h4>
+                        <p>Информатика и вычислительная техника</p>
+                        <span class="specialization">Математическая кибернетика и информационные технологии</span>
                     </div>
                 </div>
-                <div class="education-item">
-                    <div class="education-year">2019 - 2023</div>
+
+                <div class="education-item animate-on-scroll">
+                    <div class="education-year">
+                        <span class="year-range">2019-2023</span>
+                        <span class="status completed">Завершено</span>
+                    </div>
                     <div class="education-content">
-                        <h3 class="degree">Среднее профессиональное образование</h3>
-                        <h4 class="university">МАДК им. А.А. Николаева</h4>
-                        <p class="specialization">Информационные системы и программирование (09.02.07)</p>
+                        <h3>Среднее профессиональное образование</h3>
+                        <h4>МАДК им. А.А. Николаева</h4>
+                        <p>Информационные системы и программирование</p>
+                        <span class="specialization">Специальность 09.02.07</span>
                     </div>
                 </div>
             </div>
@@ -274,50 +544,74 @@
     </section>
 
     <!-- Контакты -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Свяжитесь со мной</h2>
+            <h2 class="section-title animate-on-scroll">Свяжитесь со мной</h2>
+            <p class="section-description animate-on-scroll">
+                Готов обсудить ваш проект или возможности сотрудничества
+            </p>
+            
             <div class="contact-content">
-                <div class="contact-info">
-                    <p class="contact-text">Готов к новым проектам и интересным задачам. Свяжитесь со мной любым удобным способом.</p>
-                    <div class="contact-items">
-                        <a href="tel:+79773654255" class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+7 (977) 365-42-55</span>
-                        </a>
-                        <a href="mailto:mikoshi365@gmail.com" class="contact-item">
+                <div class="contact-info animate-on-scroll">
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
-                            <span>mikoshi365@gmail.com</span>
-                        </a>
-                        <a href="https://t.me/vinokot_qp" class="contact-item" target="_blank">
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:mikoshi365@gmail.com">mikoshi365@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fab fa-telegram"></i>
-                            <span>@vinokot_qp</span>
-                        </a>
-                        <div class="contact-item">
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telegram</h3>
+                            <a href="https://t.me/vinokot_qp" target="_blank">@vinokot_qp</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Телефон</h3>
+                            <a href="tel:+79773654255">+7 (977) 365-42-55</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Местоположение</h3>
                             <span>Москва, Россия</span>
                         </div>
                     </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://t.me/vinokot_qp" class="social-link" target="_blank"><i class="fab fa-telegram"></i></a>
+                </div>
+
+                <form id="contactForm" class="contact-form animate-on-scroll">
+                    <div class="form-group">
+                        <input type="text" name="from_name" placeholder="Ваше имя" required>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Ваш email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Отправить сообщение</button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <input type="email" name="from_email" placeholder="Ваш email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Тема сообщения" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Сообщение" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-paper-plane"></i>
+                        Отправить сообщение
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -325,11 +619,66 @@
     <!-- Футер -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Микоши Максим. Все права защищены.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Микоши Максим</h3>
+                    <p>IT-специалист и разработчик, создающий современные решения для бизнеса</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Masya7" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://t.me/vinokot_qp" target="_blank" title="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="mailto:mikoshi365@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">О себе</a></li>
+                        <li><a href="#experience">Опыт</a></li>
+                        <li><a href="#skills">Навыки</a></li>
+                        <li><a href="#projects">Проекты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul class="footer-links">
+                        <li>Веб-разработка</li>
+                        <li>Системное администрирование</li>
+                        <li>UI/UX дизайн</li>
+                        <li>Консультации</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> mikoshi365@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +7 (977) 365-42-55</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Москва, Россия</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> Микоши Максим. Все права защищены.</p>
+                <p>Сделано с ❤️ и большим количеством кофе ☕</p>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Обновление года в футере
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
+
 
